@@ -2,27 +2,30 @@
 #include "header.h"
 
 using namespace std;
-///вспомогательная команда, позовляющая убрать нули
-void Long::_removeZeros() {
-    while (this->_value.size() > 1 && this->_value.back() == 0) {
-        this->_value.pop_back();
-    }
-}
+/// вспомогательная команда, позовляющая убрать нули
+///\code
+/// void Long::_removeZeros() {
+///    while (this->_value.size() > 1 && this->_value.back() == 0) {
+///        this->_value.pop_back();
+///    }
+///}
+///\endcode
+
 
 Long::Long(){}
 
-
-Long::Long(int number ///<[in] - занчение целого числа для конвертации в тип длинное целое
-) {
-    if(number < 0)
-        _isNegative = true;
-    else
-        _isNegative = false;
-    string str = to_string(number);
-    for (int i = str.size() - 1; i >= 0; i--)
-        _value.push_back(str[i] - '0');
-};
-
+///\code
+/// Long::Long(int number ///<[in] - занчение целого числа для конвертации в тип длинное целое
+///) {
+///    if(number < 0)
+///        _isNegative = true;
+///    else
+///        _isNegative = false;
+///    string str = to_string(number);
+///    for (int i = str.size() - 1; i >= 0; i--)
+///        _value.push_back(str[i] - '0');
+///};
+///\endcode
 ///операторы сравнения для длинных
 bool operator == (Long l1, Long l2) {
     if (l1._value.size() == l2._value.size())
